@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./components/Header"
 
 import Home from "./pages/Home"
+import Movie from "./pages/Movie"
 import NotFound from "./pages/Not-Found";
 
 const Routes = () => {
@@ -11,6 +12,7 @@ const Routes = () => {
             <Header />
             <Switch>
                 <Route exact path="/" component={ Home } />
+                <Route exact path="/filme/:id" component={ Movie } />
                 <Route path="*" component={ NotFound } />
             </Switch>
         </BrowserRouter>
