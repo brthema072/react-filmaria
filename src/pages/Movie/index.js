@@ -32,6 +32,23 @@ export default function Movie(){
     }, [history, id])
 
 
+    function movieSave(){
+        const listMovies = localStorage.getItem("movies")
+
+        let savedMovies = JSON.parse(listMovies) || [];
+
+        const hasMovie = savedMovies.some((m) => m.id === movie.id)
+        if(hasMovie){
+            alert("Você já possui esse filme salvo!")
+            return;
+        }
+        
+        savedMovies.push(movie)
+        localStorage.setItem("movies", JSON.stringify(savedMovies))
+        alert("Filme salvo com sucesso!")
+        
+    }
+
     if(loading){
         return(
             <div className="movie-loading">
@@ -49,7 +66,7 @@ export default function Movie(){
             { movie.sinopse }
 
             <div>
-                <button onClick={() => {  }}>Salvar</button>
+                <button onClick={ movieSave }>Salvar</button>
                 <button>
                     <a target="blank" href={ `https://youtube.com/results?search_query=${ movie.nome } Trailer` }>
                         Trailer
