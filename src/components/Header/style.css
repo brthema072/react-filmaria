@@ -22,10 +22,10 @@ header{
     padding: 5px;
     font-weight: bold;
     color: black;
+    transition: all 0.6s;
 }
 
 .favoritos:hover{
     color: white;
     background-color: grey;
-    transition: all 0.6s;
 }
